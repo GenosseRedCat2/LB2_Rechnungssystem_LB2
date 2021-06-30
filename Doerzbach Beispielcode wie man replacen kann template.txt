@@ -1,0 +1,20 @@
+a="adsfadf asdfasdf %(tester)100s"%{'tester' : 'armin' }
+a="adsfadf asdfasdf %(tester)100s"%{'tester' : 'armin' }
+a="adsfadf asdfasdf %(tester)100s"%{'tester' : 'armin' }
+print(a)
+adsfadf asdfasdf                                                                                                armin
+a="adsfadf asdfasdf %(tester)10s"%{'tester' : 'armin' }
+print(a)
+adsfadf asdfasdf      armin
+a="adsfadf asdfasdf %(tester)10.2f"%{'tester' : 10.123123}
+print(a)
+adsfadf asdfasdf      10.12
+a="adsfadf asdfasdf %(tester)010.2f"%{'tester' : 10.123123}
+print(a)
+adsfadf asdfasdf 0000010.12
+a="adsfadf asdfasdf %(tester)-10.2f"%{'tester' : 10.123123}
+print(a)
+adsfadf asdfasdf 10.12
+a="adsfadf asdfasdf %(tester)-10.2f adfadsf"%{'tester' : 10.123123}
+print(a)
+adsfadf asdfasdf 10.12      adfadsf
