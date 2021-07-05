@@ -1,0 +1,20 @@
+baksdfbbfabsdfasdfbdbf asdfasdf
+
+
+
+
+
+%(ort_datum1)s, den %(ort_datum2)s %(kundenName)30s
+                                   %(kundenStrasse)23s
+                                   %(kundenPLZ)15s
+
+
+
+
+Kundennummer:        %(kundennummer)s
+Auftragsnummer:      %(auftragsnummer)s
+
+
+Rechnung Nr %(rechnungsNr)-10s asdfasdf
+-----------------
+%(rechnungspos)s

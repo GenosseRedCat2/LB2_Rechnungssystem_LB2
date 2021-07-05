@@ -1,73 +1,50 @@
 import csv
+def parserechnung(filename):
+    with open(filename) as csvfile:
+        csvReader = csv.reader(csvfile, delimiter=';')
 
-with open("rechnung21003.data") as csvfile:
-    csvReader = csv.reader(csvfile, delimiter=';')
+        rechnungsdata=dict()
 
+        #Write all into a row
 
-
-    #Write all into a row
-    rechnungspos = []
-    for row in csvReader:
-        #print all rows out
-        #print(row)
-
-        if row[0].startswith("Rechnung_"):
-            rechnungsNr=row[0][9:]
-            print(rechnungsNr)
-        if row[0] == "Herkunft":
-            rechnungsstellerID = row[1]
-            rechnungsstellerkundenNr=row[2]
-        if row[0] == "Endkunde":
-            kundenID = row[1]
-            kundenName = row[2]
-        if row[0]== "RechnPos":
-            print(row[1:])
-            rechnungspos.append(row[1:])
-    print(rechnungspos)
-
-    with open('rechnung21003.txt', 'a') as f:
-        if 'Rechnung_21003' in row:
+        rechnungsdata["rechnungspos"] = []
+        for row in csvReader: #jedes row ein subarray
+            #print all rows out
             #print(row)
-            f.write("RECHNUNG INFO")
-            f.write("\n")
-            Rechnung_Info_string = '\n'.join(map(str, row))
-            f.write(Rechnung_Info_string)
-            f.write("\n")
-            f.write("\n")
 
-        if 'Herkunft' in row:
-            #print(row)
-            f.write("HERKUNFT INFO")
-            f.write("\n")
-            Herkunft_string = '\n'.join(map(str, row))
-            f.write(Herkunft_string)
-            f.write("\n")
-            f.write("\n")
+            if row[0].startswith("Rechnung_"):
+                rechnungsdata["rechnungsNr"] = row[0][9:] #von null bis _ zählen dann ab neunter stelle alles nehmen
+                print(rechnungsdata["rechnungsNr"])
 
-        if 'Endkunde' in row:
-            #print(row)
-            f.write("ENDKUNDE INFO")
-            f.write("\n")
-            Endkunde_string = '\n                                 '.join(map(str, row))
-            f.write(Endkunde_string)
-            f.write("\n")
-            f.write("\n")
+                rechnungsdata["auftragsnummer"] = row[1][8:]
 
-        if 'RechnPos' in row and '1' in row:
-            #print(row)
-            f.write("RECHNUNGS POSITION INFO EINS")
-            f.write("\n")
-            RechnPos_string = ''.join(map(str, row))
-            f.write(RechnPos_string)
-            f.write("\n")
-            f.write("\n")
 
-        if 'RechnPos' in row and '2' in row:
-            f.write("RECHNUNGS POSITION INFO ZWEI")
-            f.write("\n")
-            RechnPos_string = '\n'.join(map(str, row))
-            f.write(RechnPos_string)
-            f.write("\n")
-            f.write("\n")
-    print(rechnungspos)
+                rechnungsdata["ort_datum1"] = row[2]
+                rechnungsdata["ort_datum2"] = row[3]
 
+
+            if row[0] == "Herkunft":
+
+                rechnungsdata["kundennummer"] = row[2]
+
+                rechnungsstellerID = row[1]
+                rechnungsstellerkundenNr=row[2]
+            if row[0] == "Endkunde":
+                print("")
+                rechnungsdata["kundenName"] = row[2]
+                rechnungsdata["kundenStrasse"] = row[3]
+                rechnungsdata["kundenPLZ"] = row[4]
+                # rechnungsdata["rechnungsNr"] = row[2][9:]   alles hinter dran ab der 9 stelle vom Feld null
+
+
+
+
+
+
+            if row[0]== "RechnPos":
+                rechnungsdata["rechnungspos"].append(row[1:])
+
+                for rows in row:
+                    print(rows)
+
+    return rechnungsdata
