@@ -27,4 +27,3 @@ Auftragsnummer:      %(auftragsnummer)s
 
 Rechnung Nr %(rechnungsNr)-10s asdfasdf
 -----------------
-%(rechnungspos)s
