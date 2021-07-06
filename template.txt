@@ -1,5 +1,15 @@
-baksdfbbfabsdfasdfbdbf asdfasdf
 
+
+
+
+
+
+
+%(senderName)s
+%(senderAdresse)s
+%(senderPLZ)s
+
+%(senderCHE)s
 
 
 

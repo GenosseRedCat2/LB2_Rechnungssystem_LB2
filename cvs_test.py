@@ -14,7 +14,6 @@ rechnungsnummer_text = "21003"
 
 
 
-
 absender_template="%(absender)0s"%{'absender' : absender_text }
 
 angabe_mwst = "%(mwst)0s"%{'mwst' : mwst_text }
@@ -24,6 +23,8 @@ angabe_ort_datum_empfaenger="%(ortunddatum)0s %(empfaenger)50s"%{'ortunddatum' :
 kundennummer="\n\n\nKundennummer: %(kundennummer)7s"%{'kundennummer' : kundennummer_text }
 auftragsnummer="Auftragsnummer: %(auftragsnummer)5s"%{'auftragsnummer' : auftragsnummer_text }
 rechnungsnummer="Rechnung Nr %(rechnungsnummer)10s"%{'rechnungsnummer' : rechnungsnummer_text }
+
+sendername = "&(sendername_text)"
 
 print(absender_template)
 print(angabe_mwst)

@@ -1,4 +1,7 @@
 import csv
+
+
+
 def parserechnung(filename):
     with open(filename) as csvfile:
         csvReader = csv.reader(csvfile, delimiter=';')
@@ -14,7 +17,7 @@ def parserechnung(filename):
 
             if row[0].startswith("Rechnung_"):
                 rechnungsdata["rechnungsNr"] = row[0][9:] #von null bis _ zählen dann ab neunter stelle alles nehmen
-                print(rechnungsdata["rechnungsNr"])
+                #print(rechnungsdata["rechnungsNr"])
 
                 rechnungsdata["auftragsnummer"] = row[1][8:]
 
@@ -29,6 +32,11 @@ def parserechnung(filename):
 
                 rechnungsstellerID = row[1]
                 rechnungsstellerkundenNr=row[2]
+                rechnungsdata["senderName"] = row[3]
+                rechnungsdata["senderAdresse"] = row[4]
+                rechnungsdata["senderPLZ"] = row[5]
+                rechnungsdata["senderCHE"] = row[6]
+
             if row[0] == "Endkunde":
                 print("")
                 rechnungsdata["kundenName"] = row[2]
@@ -40,11 +48,23 @@ def parserechnung(filename):
 
 
 
+            rechnArray = []
+            if row[0] == "RechnPos":
+                rechnArray.append(row)
+                text = []
+                for element in rechnArray: #Für alli
+                    newText = ""
+                    newText = newText + "  "
+                    newText = newText + element[1]
+                    newText = newText + "   "
+                    newText = newText + element[2]
+                    newText = newText + "      " + element[3]
+                    newText = newText + "    " + element[4] + " CHF"
+                    newText = newText + "     " + element[5]
+                    newText = newText + element[6]
+                    text.append(newText)
 
-            if row[0]== "RechnPos":
-                rechnungsdata["rechnungspos"].append(row[1:])
+                    print(text)
+                    rechnungsdata["rechnungspos"] = text  #Contains both in one
 
-                for rows in row:
-                    print(rows)
-
-    return rechnungsdata
+        return rechnungsdata
