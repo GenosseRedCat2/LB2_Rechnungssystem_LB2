@@ -1,1 +1,31 @@
-%(rechnungstotal)s
+                                                                -----------
+                                                  Total CHF          %(rechnungstotal)s
+
+                                                  MWST CHF              0.0
+
+
+
+
+
+
+
+
+
+
+
+Zahlungsziel ohne Abzug 30 Tage (03.12.1999)
+Einzahlungsschein
+
+
+
+
+
+
+
+%(rechnungstotal)s                             %(rechnungstotal)s  %(kundenName)43s
+                                                                   %(kundenStrasse)23s
+0 00000  00000  00000                                              %(kundenPLZ)15s
+
+%(kundenName)s
+%(kundenStrasse)s
+%(kundenPLZ)s
