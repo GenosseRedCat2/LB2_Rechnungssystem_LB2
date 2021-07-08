@@ -1,8 +1,7 @@
 import ftp_connector #Muss ich au no e funktion drus mache
 import os
 from csv_reader import parserechnung
-from ftp_connector import godate
-from ftp_connector import goback
+from ftp_connector import godate, goback
 
 
 
@@ -13,7 +12,8 @@ os.chdir(goback)
 with open("template_full.xml") as tplfle_xml:
     tpl_xml = tplfle_xml.read()
     os.chdir(godate)
-    template_full_xml = open("rechnung.xml", "w")
+    xmlfilename = "rechnung" + rechnungsdata["rechnungsNr"] + ".xml"
+    template_full_xml = open(xmlfilename, "w")
     template_full_xml.write(tpl_xml % rechnungsdata)
     template_full_xml.close()
     os.chdir(goback)
@@ -50,3 +50,4 @@ with open("template_footer.txt") as tplfle:
     textfilename_full_text.write(tpl_footer % rechnungsdata)
     textfilename_full_text.close()
     os.chdir(goback)
+
