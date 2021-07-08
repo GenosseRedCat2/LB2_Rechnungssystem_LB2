@@ -25,5 +25,6 @@ Kundennummer:        %(kundennummer)s
 Auftragsnummer:      %(auftragsnummer)s
 
 
-Rechnung Nr %(rechnungsNr)-10s asdfasdf
+Rechnung Nr %(rechnungsNr)-10s asdfasdf #MUSS LOKAL ÜBERTRAGEN WERDEN  HIER BIN ICH ZUHAUSE
+SCHON FERTIG
 -----------------
