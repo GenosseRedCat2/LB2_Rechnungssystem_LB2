@@ -1,5 +1,4 @@
 SETUP
-
 In order to use the LB2_Rechnungssystem_LB2 you need to do the following:
 - Download and install Python 3.9.5
 - Download the compressed LB2_Rechnungssystem_LB2 and extract it.
