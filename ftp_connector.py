@@ -8,15 +8,18 @@ password = "Berufsschule8005!"
 FTP_server = "ftp.haraldmueller.ch"
 #Connection wird aufgebaut
 ftp_conn = ftplib.FTP(FTP_server)
-print('using %s : %s' % (username, password))
+#print('using %s : %s' % (username, password))
 ftp_conn.login(username, password)
-print("Success: %s:%s" % (username, password))
+#print("Success: %s:%s" % (username, password))
 ftp_conn.cwd("/out/AP18cBanyer")
 
 today = date.today()
 d1 = today.strftime("%d-%b-%Y")
 neuste_rechnungen = "Rechnungen_vom_" + d1
 
+# Fertige Directory Befehle
+goback = ".."
+godate = neuste_rechnungen
 #Incase the folder doesn't exist,
 # one is automatically created with the name "Backup_Homepage" and the current date.
 if not os.path.exists(neuste_rechnungen):

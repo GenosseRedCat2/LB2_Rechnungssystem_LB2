@@ -14,9 +14,9 @@
 
 
 
-%(ort_datum1)s, den %(ort_datum2)s %(kundenName)30s
-                                   %(kundenStrasse)23s
-                                   %(kundenPLZ)15s
+%(ort_datum1)s, den %(ort_datum2)s %(kundenName)44s
+                                   %(kundenStrasse)36s
+                                   %(kundenPLZ)28s
 
 
 
@@ -25,6 +25,5 @@ Kundennummer:        %(kundennummer)s
 Auftragsnummer:      %(auftragsnummer)s
 
 
-Rechnung Nr %(rechnungsNr)-10s asdfasdf #MUSS LOKAL ÜBERTRAGEN WERDEN  HIER BIN ICH ZUHAUSE
-SCHON FERTIG
+Rechnung Nr %(rechnungsNr)-10s
 -----------------
