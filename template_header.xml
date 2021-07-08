@@ -1,0 +1,139 @@
+<XML-FSCM-INVOICE-2003A>
+  <INTERCHANGE>
+    <IC-SENDER>
+      <Pid>41010000001234567</Pid>
+    </IC-SENDER>
+    <IC-RECEIVER>
+      <Pid>41301000000012497</Pid>
+    </IC-RECEIVER>
+    <IR-Ref />
+  </INTERCHANGE>
+  <INVOICE>
+    <HEADER>
+      <FUNCTION-FLAGS>
+        <Confirmation-Flag />
+        <Canellation-Flag />
+      </FUNCTION-FLAGS>
+      <MESSAGE-REFERENCE>
+        <REFERENCE-DATE>
+          <Reference-No>202007164522001</Reference-No>
+          <Date>%(ort_datum2)s</Date>
+        </REFERENCE-DATE>
+      </MESSAGE-REFERENCE>
+      <PRINT-DATE>
+        <Date>%(ort_datum2)s</Date>
+      </PRINT-DATE>
+      <REFERENCE>
+        <INVOICE-REFERENCE>
+          <REFERENCE-DATE>
+            <Reference-No>21003</Reference-No>
+            <Date>%(ort_datum2)s</Date>
+          </REFERENCE-DATE>
+        </INVOICE-REFERENCE>
+        <ORDER>
+          <REFERENCE-DATE>
+            <Reference-No>%(auftragsnummer)s</Reference-No>
+            <Date>%(ort_datum2)s</Date>
+          </REFERENCE-DATE>
+        </ORDER>
+        <REMINDER Which="MAH">
+          <REFERENCE-DATE>
+            <Reference-No></Reference-No>
+            <Date>%(ort_datum2)s</Date>
+          </REFERENCE-DATE>
+        </REMINDER>
+        <OTHER-REFERENCE Type="ADE">
+          <REFERENCE-DATE>
+            <Reference-No>12345678</Reference-No>
+            <Date>%(ort_datum2)s</Date>
+          </REFERENCE-DATE>
+        </OTHER-REFERENCE>
+      </REFERENCE>
+      <BILLER>
+        <Tax-No>%(senderCHE)s</Tax-No>
+        <Doc-Reference Type="ESR-ALT "></Doc-Reference>
+        <PARTY-ID>
+          <Pid>41010000001234567</Pid>
+        </PARTY-ID>
+        <NAME-ADDRESS Format="COM">
+          <NAME>
+            <Line-35>%(senderName)s</Line-35>
+          </NAME>
+          <STREET>
+           <Line-35>%(senderAdresse)s</Line-35>
+          </STREET>
+          <City></City>
+          <State></State>
+          <Zip>
+            <Line-35>%(senderPLZ)s</Line-35>
+          </Zip>
+          <Country></Country>
+        </NAME-ADDRESS>
+        <BANK-INFO>
+          <Acct-No></Acct-No>
+          <Acct-Name></Acct-Name>
+          <BankId Type="BCNr-nat" Country="CH">001996</BankId>
+        </BANK-INFO>
+      </BILLER>
+      <PAYER>
+        <PARTY-ID>
+          <Pid>41301000000012497</Pid>
+        </PARTY-ID>
+        <NAME-ADDRESS Format="COM">
+          <NAME>
+            <Line-35>%(kundenName)s</Line-35>
+          </NAME>
+          <STREET>
+            <Line-35>%(kundenStrasse)s</Line-35>
+          </STREET>
+          <City></City>
+          <State></State>
+          <Zip>%(kundenPLZ)s</Zip>
+          <Country></Country>
+        </NAME-ADDRESS>
+      </PAYER>
+    </HEADER>
+    <LINE-ITEM />
+    <SUMMARY>
+      <INVOICE-AMOUNT>
+        <Amount>%(rechnungstotal)s</Amount>
+      </INVOICE-AMOUNT>
+      <VAT-AMOUNT>
+        <Amount></Amount>
+      </VAT-AMOUNT>
+      <DEPOSIT-AMOUNT>
+        <Amount>%(rechnungstotal)s </Amount>
+          <REFERENCE-DATE>
+            <Reference-No></Reference-No>
+            <Date>%(ort_datum2)s</Date>
+          </REFERENCE-DATE>
+      </DEPOSIT-AMOUNT>
+      <EXTENDED-AMOUNT Type="79">
+        <Amount>%(rechnungstotal)s</Amount>
+      </EXTENDED-AMOUNT>
+      <TAX>
+        <TAX-BASIS>
+          <Amount>%(rechnungstotal)s</Amount>
+        </TAX-BASIS>
+        <Rate Categorie="S">0</Rate>
+        <Amount>%(rechnungstotal)s</Amount>
+      </TAX>
+      <PAYMENT-TERMS>
+        <BASIC Payment-Type="ESR" Terms-Type="1">
+          <TERMS>
+            <Payment-Period Type="M" On-Or-After="1" Reference-Day="31">30</Payment-Period>
+            <Date>20200830</Date>
+          </TERMS>
+        </BASIC>
+        <DISCOUNT Terms-Type="22">
+          <Discount-Percentage>0.0</Discount-Percentage>
+          <TERMS>
+            <Payment-Period Type="M" On-Or-After="1" Reference-Day="31"></Payment-Period>
+            <Date></Date>
+          </TERMS>
+          <Back-Pack-Container Encode="Base64"> </Back-Pack-Container>
+        </DISCOUNT>
+      </PAYMENT-TERMS>
+    </SUMMARY>
+  </INVOICE>
+</XML-FSCM-INVOICE-2003A>

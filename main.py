@@ -10,6 +10,13 @@ with open("template_head.txt") as tplfle:
     tpl = tplfle.read()
     print(tpl % rechnungsdata) #statt print write
 
+with open("template_header.xml") as tplfle_xml:
+    tpl_xml = tplfle_xml.read()
+
+
+
+
+
 with open("template_rechnungspos.txt") as tplfile_rechnungspos:
     tpl_pos = tplfile_rechnungspos.read()
     for rechnungspos in rechnungsdata["rechnungspos"]:
@@ -18,3 +25,9 @@ with open("template_rechnungspos.txt") as tplfile_rechnungspos:
 with open("template_footer.txt") as tplfle:
     tpl = tplfle.read()
     print(tpl % rechnungsdata)
+
+
+print("-----------------------XML FILE---------------------------")
+print("\n\n\n")
+
+print(tpl_xml % rechnungsdata)
