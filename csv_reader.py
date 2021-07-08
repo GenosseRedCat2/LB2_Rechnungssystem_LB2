@@ -41,6 +41,7 @@ def parserechnung(filename):
                 rechnungsdata["senderAdresse"] = row[4]
                 rechnungsdata["senderPLZ"] = row[5]
                 rechnungsdata["senderCHE"] = row[6]
+                rechnungsdata["receiverEmail"] = row[7]
 
 
             if row[0] == "Endkunde":

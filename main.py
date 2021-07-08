@@ -2,7 +2,7 @@ import ftp_connector #Muss ich au no e funktion drus mache
 import os
 from csv_reader import parserechnung
 from ftp_connector import godate, goback
-
+from uploader import sendnow
 
 
 
@@ -51,3 +51,4 @@ with open("template_footer.txt") as tplfle:
     textfilename_full_text.close()
     os.chdir(goback)
 
+sendnow()
