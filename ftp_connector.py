@@ -1,6 +1,10 @@
 import ftplib
+import pathlib
 from datetime import date
 import os
+
+import logger
+
 print("Connecting to FTP")
 #Connection Informationen hardgecoded
 username = "schoolerinvoices"
@@ -18,8 +22,10 @@ d1 = today.strftime("%d-%b-%Y")
 neuste_rechnungen = "Rechnungen_vom_" + d1
 
 # Fertige Directory Befehle
-goback = ".."
+#universal main path
+gohome = pathlib.Path(os.path.dirname(os.path.abspath(__file__)))
 godate = neuste_rechnungen
+
 #Incase the folder doesn't exist,
 # one is automatically created with the name "Backup_Homepage" and the current date.
 if not os.path.exists(neuste_rechnungen):
@@ -35,5 +41,5 @@ for file in files:
         #print(file[1])
         with open(file[0], "wb") as file_2:
             ftp_conn.retrbinary('RETR ' + file[0], file_2.write)
-
+    logger.info("(0) Erfolgreich verbunden per FTP erste Verbindung")
 

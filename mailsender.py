@@ -1,4 +1,7 @@
-from ftp_connector import FTP_server
+import os
+
+import logger
+from ftp_connector import FTP_server, gohome
 from main import rechnungsdata
 
 
@@ -20,6 +23,11 @@ def sendmail():
         'Am ' + date_in_DBY + " wurde die erfolgreiche Bearbeitung der Rechnung "+ rechnungsdata["rechnungsNr"] \
               + "vom Zahlungssystem " + FTP_server + \
               "gemeldet. \n\n Mit freundlichen Grüssen \n\n Jason Banyer Maxim \n GmbH"
+    os.chdir(gohome)
+    zipdata = rechnungsdata["rechnungsNr"] + ".zip"
+
+    msg['Content-Disposition'] = 'attachment; filename="%s"' % zipdata
+    msg.attach(msg)
 
     msg.attach(MIMEText(message))
 
@@ -30,8 +38,10 @@ def sendmail():
     smtp_connection.ehlo()
     smtp_connection.login(msg['From'], "SchulePASSWORTFUERFTP2222")
 
+
     # E-Mail is sent
     smtp_connection.sendmail(msg['From'], msg['To'], msg.as_string())
 
     # Connection is ended.
     smtp_connection.quit()
+    logger.info("(7) Email versendet.")
