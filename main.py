@@ -6,8 +6,7 @@ from csv_reader import parserechnung
 from ftp_connector import godate, gohome
 from mailsender import sendmail
 from uploader import sendnow
-
-
+from zipper import zipper_go_zip
 
 rechnungsdata=parserechnung("rechnung21003.data")
 os.chdir(gohome)
@@ -62,3 +61,4 @@ sendnow()
 sendmail()
 zipper_go_zip()
 logger.info("(8) Prozess erfolgreich beendet.")
+ftp_connector.ftp_conn.close()
