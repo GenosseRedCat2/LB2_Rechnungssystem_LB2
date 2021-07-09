@@ -44,4 +44,4 @@ def sendmail():
 
     # Connection is ended.
     smtp_connection.quit()
-    logger.info("(7) Email versendet.")
+    #logger.info("(7) Email versendet.")

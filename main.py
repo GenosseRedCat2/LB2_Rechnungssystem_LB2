@@ -19,7 +19,7 @@ with open("template_full.xml") as tplfle_xml:
     template_full_xml.write(tpl_xml % rechnungsdata)
     template_full_xml.close()
     os.chdir(gohome)
-    logger.info("(1) erfolgreich XML template generiert")
+    #logger.info("(1) erfolgreich XML template generiert")
 
 
 #Textfile wird mit header generiert und in Ordner mit aktuellem Datum abgespeichert
@@ -31,7 +31,7 @@ with open("template_head.txt") as tplfle:
     textfilename_full_text.write(tpl_header % rechnungsdata)
     textfilename_full_text.close()
     os.chdir(gohome)
-    logger.info("(2) erfolgreich TXT head template generiert")
+    #logger.info("(2) erfolgreich TXT head template generiert")
 
 #Textfile wird mit Rechnungsposition generiert und in Ordner mit aktuellem Datum abgespeichert
 with open("template_rechnungspos.txt") as tplfile_rechnungspos:
@@ -44,7 +44,7 @@ with open("template_rechnungspos.txt") as tplfile_rechnungspos:
         textfilename_full_text.write("\n")
     textfilename_full_text.close()
     os.chdir(gohome)
-logger.info("(3) erfolgreich TXT Rechnungsposition template generiert")
+#logger.error("(3) erfolgreich TXT Rechnungsposition template generiert")
 #Textfile wird mit footer generiert und in Ordner mit aktuellem Datum abgespeichert
 with open("template_footer.txt") as tplfle:
     tpl_footer = tplfle.read()
@@ -54,11 +54,11 @@ with open("template_footer.txt") as tplfle:
     textfilename_full_text.write(tpl_footer % rechnungsdata)
     textfilename_full_text.close()
     os.chdir(gohome)
-logger.info("(4) erfolgreich footer TXT template generiert")
+#logger.info("(4) erfolgreich footer TXT template generiert")
 #Die beiden invoice Dateien werden hochgeladen per FTP
 sendnow()
 #Ein E-Mail wird versendet mit den aktuellen Informationen zu dem vollendeten Prozess.
 sendmail()
 zipper_go_zip()
-logger.info("(8) Prozess erfolgreich beendet.")
+#logger.info("(8) Prozess erfolgreich beendet.")
 ftp_connector.ftp_conn.close()

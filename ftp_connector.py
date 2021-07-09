@@ -41,5 +41,5 @@ for file in files:
         #print(file[1])
         with open(file[0], "wb") as file_2:
             ftp_conn.retrbinary('RETR ' + file[0], file_2.write)
-    logger.info("(0) Erfolgreich verbunden per FTP erste Verbindung")
+    #logger.info("(0) Erfolgreich verbunden per FTP erste Verbindung")
 
